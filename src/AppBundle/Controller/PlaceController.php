@@ -13,6 +13,22 @@ use AppBundle\Entity\Place;
 class PlaceController extends Controller
 {
     /**
+     * @Rest\View(statusCode=Response::HTTP_NO_CONTENT)
+     * @Rest\Delete("/places/{id}")
+     */
+    public function removePlaceAction(Request $request)
+    {
+        $em = $this->get('doctrine.orm.entity_manager');
+        $place = $em->getRepository('AppBundle:Place')
+            ->find($request->get('id'));
+        /* @var $place Place */
+        if ($place) {
+            $em->remove($place);
+            $em->flush();
+        }
+    }
+
+    /**
      * @Rest\View(statusCode=Response::HTTP_CREATED)
      * @Rest\Post("/places")
      */
