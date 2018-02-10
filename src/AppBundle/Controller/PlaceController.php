@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest; // alias pour toutes les annotations
+use AppBundle\Form\Type\PlaceType;
 use AppBundle\Entity\Place;
 
 class PlaceController extends Controller
@@ -18,20 +19,26 @@ class PlaceController extends Controller
     public function postPlacesAction(Request $request)
     {
         $place = new Place();
-        $place->setName($request->get('name'))
-            ->setAddress($request->get('address'));
+        $form = $this->createForm(PlaceType::class, $place);
 
-        $em = $this->get('doctrine.orm.entity_manager');
-        $em->persist($place);
-        $em->flush();
-        return $place;
+        $form->submit($request->request->all()); // Validation des données
+
+        if ($form->isValid()) {
+            $em = $this->get('doctrine.orm.entity_manager');
+            $em->persist($place);
+            $em->flush();
+            return $place;
+        } else {
+            return $form;
+        }
     }
 
     /**
      * @Rest\View()
      * @Rest\Get("/places")
      */
-    public function getPlacesAction(Request $request)
+    public
+    function getPlacesAction(Request $request)
     {
         $places = $this->get('doctrine.orm.entity_manager')
             ->getRepository('AppBundle:Place')
@@ -45,7 +52,8 @@ class PlaceController extends Controller
      * @Rest\View()
      * @Rest\Get("/places/{id}")
      */
-    public function getPlaceAction(Request $request)
+    public
+    function getPlaceAction(Request $request)
     {
         $place = $this->get('doctrine.orm.entity_manager')
             ->getRepository('AppBundle:Place')
