@@ -14,9 +14,23 @@ class PlaceController extends Controller
 {
     /**
      * @Rest\View()
+     * @Rest\Put("/places/{id}")
+     */
+    public function updatePlaceAction(Request $request)
+    {
+        return $this->updatePlace($request, true);
+    }
+
+    /**
+     * @Rest\View()
      * @Rest\Patch("/places/{id}")
      */
     public function patchPlaceAction(Request $request)
+    {
+        return $this->updatePlace($request, false);
+    }
+
+    private function updatePlace(Request $request, $clearMissing)
     {
         $place = $this->get('doctrine.orm.entity_manager')
             ->getRepository('AppBundle:Place')
@@ -31,40 +45,11 @@ class PlaceController extends Controller
 
         // Le paramètre false dit à Symfony de garder les valeurs dans notre
         // entité si l'utilisateur n'en fournit pas une dans sa requête
-        $form->submit($request->request->all(), false);
+        $form->submit($request->request->all(), $clearMissing);
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
-            $em->merge($place);
-            $em->flush();
-            return $place;
-        } else {
-            return $form;
-        }
-    }
-
-    /**
-     * @Rest\View()
-     * @Rest\Put("/places/{id}")
-     */
-    public function updatePlaceAction(Request $request)
-    {
-        $place = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:Place')
-            ->find($request->get('id')); // L'identifiant en tant que paramètre n'est plus nécessaire
-        /* @var $place Place */
-
-        if (empty($place)) {
-            return new JsonResponse(['message' => 'Place not found'], Response::HTTP_NOT_FOUND);
-        }
-
-        $form = $this->createForm(PlaceType::class, $place);
-
-        $form->submit($request->request->all());
-
-        if ($form->isValid()) {
-            $em = $this->get('doctrine.orm.entity_manager');
-            $em->merge($place);
+            $em->persist($place);
             $em->flush();
             return $place;
         } else {
