@@ -20,21 +20,36 @@ class UserController extends Controller
      */
     public function updateUserAction(Request $request)
     {
+        return $this->updateUser($request, true);
+    }
+
+    /**
+     * @Rest\View()
+     * @Rest\Patch("/users/{id}")
+     */
+    public function patchUserAction(Request $request)
+    {
+        return $this->updateUser($request, false);
+    }
+
+    private function updateUser(Request $request, $clearMissing)
+    {
         $user = $this->get('doctrine.orm.entity_manager')
             ->getRepository('AppBundle:User')
             ->find($request->get('id')); // L'identifiant en tant que paramètre n'est plus nécessaire
         /* @var $user User */
+
         if (empty($user)) {
             return new JsonResponse(['message' => 'User not found'], Response::HTTP_NOT_FOUND);
         }
 
         $form = $this->createForm(UserType::class, $user);
 
-        $form->submit($request->request->all());
+        $form->submit($request->request->all(), $clearMissing);
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
-            $em->merge($user);
+            $em->persist($user);
             $em->flush();
             return $user;
         } else {
