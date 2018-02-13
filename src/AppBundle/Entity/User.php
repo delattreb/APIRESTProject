@@ -10,7 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
  *      uniqueConstraints={@ORM\UniqueConstraint(name="users_email_unique",columns={"email"})}
  * )
  */
-
 class User
 {
     /**
