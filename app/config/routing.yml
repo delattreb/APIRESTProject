@@ -1,5 +1,5 @@
 app:
-    resource: '@AppBundle/Controller/Defaultcontroller.php'
+    resource: '@AppBundle/Controller/DefaultController.php'
     type: annotation
 
 places:
@@ -9,3 +9,7 @@ places:
 users:
     type:     rest
     resource: AppBundle\Controller\UserController
+
+prices:
+    type:     rest
+    resource: AppBundle\Controller\Place\PriceController
