@@ -20,3 +20,27 @@ AppBundle\Entity\Price:
             groups: ['place', 'price']
         place:
             groups: ['price']
+
+AppBundle\Entity\User:
+    attributes:
+        id:
+            groups: ['user', 'preference', 'auth-token']
+        firstname:
+            groups: ['user', 'preference', 'auth-token']
+        lastname:
+            groups: ['user', 'preference', 'auth-token']
+        email:
+            groups: ['user', 'preference', 'auth-token']
+        preferences:
+            groups: ['user']
+
+AppBundle\Entity\AuthToken:
+    attributes:
+        id:
+            groups: ['auth-token']
+        value:
+            groups: ['auth-token']
+        createdAt:
+            groups: ['auth-token']
+        user:
+            groups: ['auth-token']

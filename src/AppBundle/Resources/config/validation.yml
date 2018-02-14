@@ -40,3 +40,13 @@ AppBundle\Entity\Price:
             - Type: numeric
             - GreaterThanOrEqual:
                 value: 0
+
+AppBundle\Entity\Credentials:
+    properties:
+        login:
+            - NotBlank: ~
+            - Type: string
+        password:
+            - NotBlank: ~
+            - Type: string
+
