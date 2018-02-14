@@ -14,13 +14,15 @@ class UserType extends AbstractType
         $builder->add('firstname');
         $builder->add('lastname');
         $builder->add('email', EmailType::class);
+        $builder->add('plainPassword'); // Rajout du mot de passe
     }
 
-    public function configureOptions(OptionsResolver $resolver)
+    public
+    function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => 'AppBundle\Entity\User',
-            'csrf_protection' => false
+          'data_class' => 'AppBundle\Entity\User',
+          'csrf_protection' => false
         ]);
     }
 }
