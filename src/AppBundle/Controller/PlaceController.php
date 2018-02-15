@@ -88,10 +88,14 @@ class PlaceController extends Controller
         $place = new Place();
         $form = $this->createForm(PlaceType::class, $place);
 
-        $form->submit($request->request->all()); // Validation des données
+        $form->submit($request->request->all());
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
+            foreach ($place->getPrices() as $price) {
+                $price->setPlace($place);
+                $em->persist($price);
+            }
             $em->persist($place);
             $em->flush();
             return $place;
