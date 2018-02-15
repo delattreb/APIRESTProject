@@ -18,11 +18,15 @@
 							{
 								"key": "Content-Type",
 								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "P6kL9vyzrEXgEPy0jGj4pDTPvxxncVzYPPHnsQhsMv/nHatoFbicBOXi4cUbAzRox0k="
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\":\"Paris\",\n  \"address\":\"Place de l'étoile\"\n}"
+							"raw": "{\r\n  \"name\": \"Musée du Louvre\",\r\n  \"address\": \"799, rue de Rivoli, 75001 Paris\",\r\n  \"prices\": [\r\n    {\r\n      \"type\": \"less_than_12\",\r\n      \"value\": 6\r\n    },\r\n    {\r\n      \"type\": \"for_all\",\r\n      \"value\": 15\r\n    }\r\n  ]\r\n}"
 						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places",
@@ -207,7 +211,7 @@
 					},
 					"response": [
 						{
-							"id": "c5d38af4-b634-424e-8e15-3d441cf64b37",
+							"id": "3cda218f-410d-4113-abb9-7eb3b579db88",
 							"name": "Get Users",
 							"originalRequest": {
 								"method": "GET",
@@ -300,7 +304,7 @@
 							"body": "[{\"id\":2,\"firstname\":\"Ef\",\"lastname\":\"Ghi\",\"email\":\"ef.ghi@test.local\"},{\"id\":3,\"firstname\":\"Bruno\",\"lastname\":\"Delattre\",\"email\":\"delattreb@gmail.colm\"}]"
 						},
 						{
-							"id": "443d5126-fe55-4105-b726-9c4e5c132150",
+							"id": "5bf0e2a5-39e1-4603-985e-089ba7b77e94",
 							"name": "Get Users",
 							"originalRequest": {
 								"method": "GET",
