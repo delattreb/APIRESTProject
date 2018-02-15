@@ -7,9 +7,12 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    jms_serializer.camel_case_naming_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
 
 framework:
     #esi: ~
+    serializer:
+        enabled: false
     translator: ~
     secret: '%secret%'
     router:
@@ -69,6 +72,8 @@ swiftmailer:
 
 # FOSREST
 fos_rest:
+    serializer:
+        serialize_null: true
     routing_loader:
         include_format: false
     view:
@@ -90,3 +95,11 @@ fos_rest:
             'Symfony\Component\Security\Core\Exception\BadCredentialsException': true
         codes:
             'Symfony\Component\Security\Core\Exception\BadCredentialsException': 401
+
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "Y-m-d\\TH:i:sP"
+            default_timezone: "UTC"
+
+
