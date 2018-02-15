@@ -1,0 +1,782 @@
+{
+	"info": {
+		"name": "APIREST",
+		"_postman_id": "05549154-ebd4-22bf-b4b3-f84049d6d47e",
+		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post",
+			"description": "",
+			"item": [
+				{
+					"name": "Post Place",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\":\"Paris\",\n  \"address\":\"Place de l'étoile\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Post User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstname\": \"Bruno\",\n  \"lastname\": \"Delattre\",\n  \"email\": \"delattrebbbb@gmail.com\",\n  \"plainPassword\": \"plainPassword\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"users"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Post Price",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Auth-Token",
+								"value": "P6kL9vyzrEXgEPy0jGj4pDTPvxxncVzYPPHnsQhsMv/nHatoFbicBOXi4cUbAzRox0k="
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"for_all\",\r\n    \"value\":  100.5\r\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places/2/prices",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places",
+								"2",
+								"prices"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Post AuthToken",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"login\":\"delattreb@gmail.com\",\n\t\"password\":\"test\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/auth-tokens",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"auth-tokens"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b2dc6db1-426a-4835-b94b-0237007003f3",
+								"type": "text/javascript",
+								"exec": [
+									"// example using pm.response.to.have",
+									"pm.test(\"response is ok\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users/1777",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"users",
+								"1777"
+							]
+						},
+						"description": "Get list of all users"
+					},
+					"response": [
+						{
+							"id": "c5d38af4-b634-424e-8e15-3d441cf64b37",
+							"name": "Get Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"url": {
+									"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"APIRESTProject",
+										"web",
+										"app_dev.php",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private",
+									"name": "Cache-Control",
+									"description": ""
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive",
+									"name": "Connection",
+									"description": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "154",
+									"name": "Content-Length",
+									"description": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": ""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 10 Feb 2018 18:02:51 GMT",
+									"name": "Date",
+									"description": ""
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100",
+									"name": "Keep-Alive",
+									"description": ""
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.27 (Win64) PHP/7.1.9",
+									"name": "Server",
+									"description": ""
+								},
+								{
+									"key": "X-Debug-Token",
+									"value": "9fcbf7",
+									"name": "X-Debug-Token",
+									"description": ""
+								},
+								{
+									"key": "X-Debug-Token-Link",
+									"value": "http://127.0.0.1/APIRESTProject/web/app_dev.php/_profiler/9fcbf7",
+									"name": "X-Debug-Token-Link",
+									"description": ""
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.1.9",
+									"name": "X-Powered-By",
+									"description": ""
+								}
+							],
+							"cookie": [],
+							"responseTime": "204",
+							"body": "[{\"id\":2,\"firstname\":\"Ef\",\"lastname\":\"Ghi\",\"email\":\"ef.ghi@test.local\"},{\"id\":3,\"firstname\":\"Bruno\",\"lastname\":\"Delattre\",\"email\":\"delattreb@gmail.colm\"}]"
+						},
+						{
+							"id": "443d5126-fe55-4105-b726-9c4e5c132150",
+							"name": "Get Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"path": [
+										"APIRESTProject",
+										"web",
+										"app_dev.php",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "",
+							"_postman_previewtype": "parsed",
+							"header": [],
+							"cookie": [],
+							"responseTime": 0,
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Get Places",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9a95e720-1b40-4f70-b43b-8f54d965424b",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "P6kL9vyzrEXgEPy0jGj4pDTPvxxncVzYPPHnsQhsMv/nHatoFbicBOXi4cUbAzRox0k="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get User #1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb750909-7df1-4276-84d1-3727bda47e13",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "P6kL9vyzrEXgEPy0jGj4pDTPvxxncVzYPPHnsQhsMv/nHatoFbicBOXi4cUbAzRox0k="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"users",
+								"1"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get Place #1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "593ab4a7-4461-48d5-833b-c4fbe4f7b361",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "P6kL9vyzrEXgEPy0jGj4pDTPvxxncVzYPPHnsQhsMv/nHatoFbicBOXi4cUbAzRox0k="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places",
+								"1"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Get Prices",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "P6kL9vyzrEXgEPy0jGj4pDTPvxxncVzYPPHnsQhsMv/nHatoFbicBOXi4cUbAzRox0k="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places/2/prices",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places",
+								"2",
+								"prices"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Put",
+			"description": "",
+			"item": [
+				{
+					"name": "Put Place",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f692901f-a80c-458d-9ef9-ef3b93cc8712",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c10b125e-c3b3-4474-a034-36f03e84d265",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Paris\",\n    \"address\" : \"Place de l'étoile\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places",
+								"5"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Put User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstname\": \"Bruno\",\n  \"lastname\": \"Delattre\",\n  \"email\": \"delattreb@gmail.com\",\n  \"plainPassword\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"users",
+								"2"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patch",
+			"description": "",
+			"item": [
+				{
+					"name": "Patch Place",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"name\" : \"Nom partiel\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places",
+								"1"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Patch User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstname\": \"Bruno\",\n  \"lastname\": \"Delattre\",\n  \"plainPassword\": \"plainPassword\"\n}"
+						},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"users",
+								"1"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete",
+			"description": "",
+			"item": [
+				{
+					"name": "Delete Place",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/places/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"places",
+								"1"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/users/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"users",
+								"1"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "Delete AuthToken",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-Auth-Token",
+								"value": "qcI1BVSHwl+s8RNohrG0uR5kA3S66a/wF76ATlDaNYUkLnFJVXUWhDmxpzO3F4eHlwE="
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/auth-tokens/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"path": [
+								"APIRESTProject",
+								"web",
+								"app_dev.php",
+								"auth-tokens",
+								"3"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
