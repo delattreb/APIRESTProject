@@ -11,6 +11,8 @@ use AppBundle\Form\Type\PlaceType;
 use AppBundle\Entity\Place;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Request\ParamFetcher;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
 
 class PlaceController extends Controller
 {
@@ -107,6 +109,12 @@ class PlaceController extends Controller
     }
 
     /**
+     * @SWG\Response(
+     *   response="200",
+     *   description="Success",
+     *   @Model(type=User::class)
+     * )
+     *
      * @Rest\View(serializerGroups={"place"})
      * @Rest\Get("/places")
      * @QueryParam(name="offset", requirements="\d+", default="", description="Index de début de la pagination")
