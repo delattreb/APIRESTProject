@@ -21,15 +21,12 @@ security:
             pattern: ^/documentation
             security: false
         main:
-            pattern: ^/
+            pattern: ^/api
             stateless: true
             simple_preauth:
                 authenticator: auth_token_authenticator
             provider: auth_token_user_provider
             anonymous: ~
 
-    encoders:
-        AppBundle\Entity\User:
-            algorithm: bcrypt
-            cost: 12
+
 
