@@ -11,6 +11,9 @@ use AppBundle\Form\Type\PlaceType;
 use AppBundle\Entity\Place;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Request\ParamFetcher;
+use Nelmio\ApiDocBundle\Annotation\Model;
+use Swagger\Annotations as SWG;
+use Symfony\Component\Routing\Annotation\Route;
 
 class PlaceController extends Controller
 {
@@ -104,6 +107,33 @@ class PlaceController extends Controller
         } else {
             return $form;
         }
+    }
+
+    /**
+     * List the rewards of the specified user.
+     *
+     * This call takes into account all confirmed awards, but not pending or refused awards.
+     *
+     * @Route("/api/{user}/rewards", methods={"GET"})
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns the rewards of an user",
+     *     @SWG\Schema(
+     *         type="array",
+     *         @Model(type=Reward::class, groups={"full"})
+     *     )
+     * )
+     * @SWG\Parameter(
+     *     name="order",
+     *     in="query",
+     *     type="string",
+     *     description="The field used to order rewards"
+     * )
+     * @SWG\Tag(name="rewards")
+     */
+    public function fetchUserRewardsAction(Request $request)
+    {
+        // ...
     }
 
     /**
