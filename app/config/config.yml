@@ -21,8 +21,6 @@ framework:
     form: ~
     csrf_protection: ~
     validation: { enable_annotations: true }
-    serializer:
-       enabled: true
     default_locale: '%locale%'
     trusted_hosts: ~
     session:
@@ -76,14 +74,21 @@ fos_rest:
         serialize_null: true
     routing_loader:
         include_format: false
+    zone:
+        - { path: ^/api }
     view:
         view_response_listener: true
         formats:
             json: true
             xml: true
+        templating_formats:
+            html: true
     format_listener:
         rules:
-            - { path: '^/', priorities: ['json','xml'], fallback_format: 'json', prefer_extension: false }
+            - { path: '^/api', priorities: ['json'], fallback_format: 'json' }
+            - { path: '^/route/json', priorities: ['json'], fallback_format: 'json', prefer_extension: false }
+            - { path: '^/route', priorities: ['html'], fallback_format: 'html', prefer_extension: false }
+            - { path: '^/', priorities: ['json', 'xml'], fallback_format: 'json', prefer_extension: false }
     body_listener:
         enabled: true
     param_fetcher_listener:

@@ -5,18 +5,22 @@ app:
 places:
     type:     rest
     resource: AppBundle\Controller\PlaceController
+    prefix: /api
 
 users:
     type:     rest
     resource: AppBundle\Controller\UserController
+    prefix: /api
 
 prices:
     type:     rest
     resource: AppBundle\Controller\Place\PriceController
+    prefix: /api
 
 auth-tokens:
     type:     rest
     resource: AppBundle\Controller\AuthTokenController
+    prefix: /api
 
 app.swagger_ui:
     path: /documentation
