@@ -107,4 +107,9 @@ nelmio_api_doc:
     areas:
         path_patterns: # an array of regexps
             - ^/api(?!/doc$)
+    documentation:
+        info:
+            title: API RESTFUL Project
+            description: Testing project
+            version: 1.0.0
 
