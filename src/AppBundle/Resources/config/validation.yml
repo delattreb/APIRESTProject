@@ -1,4 +1,4 @@
-AppBundle\Entity\IOT\Customer:
+AppBundle\Entity\Customer:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
     properties:
