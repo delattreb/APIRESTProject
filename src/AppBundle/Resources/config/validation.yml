@@ -1,12 +1,4 @@
-AppBundle\Entity\IOT\Devices:
-    constraints:
-        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
-    properties:
-        name:
-            - NotBlank: ~
-            - Type: string
-
-AppBundle\Entity\IOT\Customer:
+AppBundle\Entity\IOT\Device:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
     properties:
@@ -16,9 +8,21 @@ AppBundle\Entity\IOT\Customer:
         description:
             - NotBlank: ~
             - Type: string
-        email:
+
+AppBundle\Entity\IOT\Customer:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+    properties:
+        name:
             - NotBlank: ~
             - Type: string
+        description:
+            - NotBlank: ~
+            - Type: string
+        email:
+            - NotBlank: ~
+            - Email: ~
         address:
             - NotBlank: ~
             - Type: string

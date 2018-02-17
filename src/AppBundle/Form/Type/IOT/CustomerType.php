@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class CustomerType extends AbstractType
 {
@@ -13,7 +14,7 @@ class CustomerType extends AbstractType
     {
         $builder->add('name');
         $builder->add('description');
-        $builder->add('email');
+        $builder->add('email', EmailType::class);
         $builder->add('address');
         $builder->add('city');
         $builder->add('state');

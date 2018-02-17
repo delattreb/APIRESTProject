@@ -5,3 +5,5 @@ AppBundle\Entity\IOT\Device:
             groups: ['device']
         name:
             groups: ['device']
+        description:
+            groups: ['device']

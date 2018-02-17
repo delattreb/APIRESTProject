@@ -21,9 +21,14 @@ class Device
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=20)
      */
     protected $name;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $description;
 
     public function getId()
     {
@@ -43,5 +48,15 @@ class Device
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }
