@@ -7,6 +7,11 @@ customers:
     resource: AppBundle\Controller\IOT\CustomerController
     prefix: /api
 
+devices:
+    type:     rest
+    resource: AppBundle\Controller\IOT\DeviceController
+    prefix: /api
+
 places:
     type:     rest
     resource: AppBundle\Controller\PlaceController

@@ -7,46 +7,46 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use AppBundle\Form\Type\IOT\CustomerType;
-use AppBundle\Entity\IOT\Customer;
+use AppBundle\Form\Type\IOT\DeviceType;
+use AppBundle\Entity\IOT\Device;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Request\ParamFetcher;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Swagger\Annotations as SWG;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CustomerController extends Controller
+class DeviceController extends Controller
 {
     /**
-     * @Rest\View(serializerGroups={"customer"})
-     * @Rest\Put("/customers/{id}")
+     * @Rest\View(serializerGroups={"device"})
+     * @Rest\Put("/devices/{id}")
      */
-    public function updateCustomerAction(Request $request)
+    public function updateDeviceAction(Request $request)
     {
-        return $this->updateCustomer($request, true);
+        return $this->updateDevice($request, true);
     }
 
     /**
-     * @Rest\View(serializerGroups={"customer"})
-     * @Rest\Patch("/customers/{id}")
+     * @Rest\View(serializerGroups={"device"})
+     * @Rest\Patch("/devices/{id}")
      */
-    public function patchCustomerAction(Request $request)
+    public function patchDeviceAction(Request $request)
     {
-        return $this->updateCustomer($request, false);
+        return $this->updateDevice($request, false);
     }
 
-    private function updateCustomer(Request $request, $clearMissing)
+    private function updateDevice(Request $request, $clearMissing)
     {
-        $customer = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:IOT\Customer')
+        $device = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:IOT\Device')
             ->find($request->get('id')); // L'identifiant en tant que paramètre n'est plus nécessaire
-        /* @var $customer Customer */
+        /* @var $device Device */
 
-        if (empty($customer)) {
-            return \FOS\RestBundle\View\View::create(['message' => 'Customer not found'], Response::HTTP_NOT_FOUND);
+        if (empty($device)) {
+            return \FOS\RestBundle\View\View::create(['message' => 'Device not found'], Response::HTTP_NOT_FOUND);
         }
 
-        $form = $this->createForm(CustomerType::class, $customer);
+        $form = $this->createForm(DeviceType::class, $device);
 
         // Le paramètre false dit à Symfony de garder les valeurs dans notre
         // entité si l'utilisateur n'en fournit pas une dans sa requête
@@ -54,62 +54,62 @@ class CustomerController extends Controller
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
-            $em->persist($customer);
+            $em->persist($device);
             $em->flush();
-            return $customer;
+            return $device;
         } else {
             return $form;
         }
     }
 
     /**
-     * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"customer"})
-     * @Rest\Delete("/customers/{id}")
+     * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"device"})
+     * @Rest\Delete("/devices/{id}")
      */
-    public function removeCustomerAction(Request $request)
+    public function removeDeviceAction(Request $request)
     {
         $em = $this->get('doctrine.orm.entity_manager');
-        $customer = $em->getRepository('AppBundle:IOT\Customer')
+        $device = $em->getRepository('AppBundle:IOT\Device')
             ->find($request->get('id'));
-        /* @var $customer Customer */
+        /* @var $device Device */
 
-        if (!$customer) {
+        if (!$device) {
             return;
         }
 
-        $em->remove($customer);
+        $em->remove($device);
         $em->flush();
     }
 
     /**
-     * @Rest\View(statusCode=Response::HTTP_CREATED,serializerGroups={"customer"})
-     * @Rest\Post("/customers")
+     * @Rest\View(statusCode=Response::HTTP_CREATED,serializerGroups={"device"})
+     * @Rest\Post("/devices")
      */
-    public function postCustomersAction(Request $request)
+    public function postDevicesAction(Request $request)
     {
-        $customer = new Customer();
-        $form = $this->createForm(CustomerType::class, $customer);
+        $device = new Device();
+        $form = $this->createForm(DeviceType::class, $device);
 
         $form->submit($request->request->all());
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
-            $em->persist($customer);
+            $em->persist($device);
             $em->flush();
-            return $customer;
+            return $device;
         } else {
             return $form;
         }
     }
 
     /**
-     * @Rest\View(serializerGroups={"customer"})
-     * @Rest\Get("/customers")
+     * @Rest\View(serializerGroups={"device"})
+     * @Rest\Get("/devices")
      * @QueryParam(name="offset", requirements="\d+", default="", description="Index de début de la pagination")
      * @QueryParam(name="limit", requirements="\d+", default="", description="Nombre d'éléments à afficher")
      * @QueryParam(name="sort", requirements="(asc|desc)", nullable=true, description="Ordre de tri (basé sur le nom)")
      */
-    public function getCustomersAction(Request $request, ParamFetcher $paramFetcher)
+    public function getDevicesAction(Request $request, ParamFetcher $paramFetcher)
     {
         $offset = $paramFetcher->get('offset');
         $limit = $paramFetcher->get('limit');
@@ -117,7 +117,7 @@ class CustomerController extends Controller
 
         $qb = $this->get('doctrine.orm.entity_manager')->createQueryBuilder();
         $qb->select('p')
-            ->from('AppBundle:IOT\Customer', 'p');
+            ->from('AppBundle:IOT\Device', 'p');
 
         if ($offset != "") {
             $qb->setFirstResult($offset);
@@ -130,27 +130,27 @@ class CustomerController extends Controller
         if (in_array($sort, ['asc', 'desc'])) {
             $qb->orderBy('p.name', $sort);
         }
-        $customer = $qb->getQuery()->getResult();
+        $device = $qb->getQuery()->getResult();
 
-        return $customer;
+        return $device;
     }
 
     /**
-     * @Rest\View(serializerGroups={"customer"})
-     * @Rest\Get("/customers/{id}")
+     * @Rest\View(serializerGroups={"device"})
+     * @Rest\Get("/devices/{id}")
      */
-    public function getCustomerAction(Request $request)
+    public function getDeviceAction(Request $request)
     {
-        $customer = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:IOT\Customer')
+        $device = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:IOT\Device')
             ->find($request->get('id')); // L'identifiant en tant que paramétre n'est plus nécessaire
-        /* @var $customer Customer */
+        /* @var $device Device */
 
-        if (empty($customer)) {
-            return \FOS\RestBundle\View\View::create(['message' => 'Customer not found'], Response::HTTP_NOT_FOUND);
+        if (empty($device)) {
+            return \FOS\RestBundle\View\View::create(['message' => 'Device not found'], Response::HTTP_NOT_FOUND);
         }
 
-        return $customer;
+        return $device;
     }
 }
 
