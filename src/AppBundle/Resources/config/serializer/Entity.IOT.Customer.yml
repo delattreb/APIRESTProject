@@ -5,3 +5,15 @@ AppBundle\Entity\IOT\Customer:
             groups: ['customer']
         name:
             groups: ['customer']
+        description:
+            groups: ['customer']
+        email:
+            groups: ['customer']
+        city:
+            groups: ['customer']
+        state:
+            groups: ['customer']
+        postalcode:
+            groups: ['customer']
+        address:
+            groups: ['customer']

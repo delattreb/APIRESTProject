@@ -13,6 +13,24 @@ AppBundle\Entity\IOT\Customer:
         name:
             - NotBlank: ~
             - Type: string
+        description:
+            - NotBlank: ~
+            - Type: string
+        email:
+            - NotBlank: ~
+            - Type: string
+        address:
+            - NotBlank: ~
+            - Type: string
+        city:
+            - NotBlank: ~
+            - Type: string
+        state:
+            - NotBlank: ~
+            - Type: string
+        postalcode:
+            - NotBlank: ~
+            - Type: string
 
 AppBundle\Entity\Place:
     constraints:
