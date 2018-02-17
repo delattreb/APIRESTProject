@@ -2,6 +2,11 @@ app:
     resource: '@AppBundle/Controller/DefaultController.php'
     type: annotation
 
+datas:
+    type:     rest
+    resource: AppBundle\Controller\IOT\DataController
+    prefix: /api
+
 customers:
     type:     rest
     resource: AppBundle\Controller\IOT\CustomerController

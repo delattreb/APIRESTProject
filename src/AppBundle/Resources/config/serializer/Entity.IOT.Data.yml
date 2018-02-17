@@ -1,0 +1,9 @@
+AppBundle\Entity\IOT\Data:
+    exclusion_policy: none
+    properties:
+        id:
+            groups: ['data']
+        temperature:
+            groups: ['data']
+        humidity:
+            groups: ['data']
