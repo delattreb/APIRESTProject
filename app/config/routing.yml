@@ -4,7 +4,7 @@ app:
 
 customers:
     type:     rest
-    resource: AppBundle\Controller\CustomerController
+    resource: AppBundle\Controller\IOT\CustomerController
     prefix: /api
 
 places:

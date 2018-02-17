@@ -1,4 +1,4 @@
-AppBundle\Entity\Customer:
+AppBundle\Entity\IOT\Customer:
     exclusion_policy: none
     properties:
         id:

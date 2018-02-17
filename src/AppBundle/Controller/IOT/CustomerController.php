@@ -1,14 +1,14 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\IOT;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
-use AppBundle\Form\Type\CustomerType;
-use AppBundle\Entity\Customer;
+use AppBundle\Form\Type\IOT\CustomerType;
+use AppBundle\Entity\IOT\Customer;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Request\ParamFetcher;
 use Nelmio\ApiDocBundle\Annotation\Model;
@@ -117,7 +117,7 @@ class CustomerController extends Controller
 
         $qb = $this->get('doctrine.orm.entity_manager')->createQueryBuilder();
         $qb->select('p')
-            ->from('AppBundle:Customer', 'p');
+            ->from('AppBundle:IOT\Customer', 'p');
 
         if ($offset != "") {
             $qb->setFirstResult($offset);
