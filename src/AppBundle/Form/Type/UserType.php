@@ -14,7 +14,7 @@ class UserType extends AbstractType
         $builder->add('firstname');
         $builder->add('lastname');
         $builder->add('email', EmailType::class);
-        $builder->add('plainPassword'); // Rajout du mot de passe
+        $builder->add('plainPassword');
     }
 
     public

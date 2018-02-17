@@ -42,9 +42,9 @@ class AuthTokenAuthenticator implements SimplePreAuthenticatorInterface, Authent
         }
 
         return new PreAuthenticatedToken(
-          'anon.',
-          $authTokenHeader,
-          $providerKey
+            'anon.',
+            $authTokenHeader,
+            $providerKey
         );
     }
 
@@ -52,9 +52,9 @@ class AuthTokenAuthenticator implements SimplePreAuthenticatorInterface, Authent
     {
         if (!$userProvider instanceof AuthTokenUserProvider) {
             throw new \InvalidArgumentException(
-              sprintf(
-                'The user provider must be an instance of AuthTokenUserProvider (%s was given).', get_class($userProvider)
-              )
+                sprintf(
+                    'The user provider must be an instance of AuthTokenUserProvider (%s was given).', get_class($userProvider)
+                )
             );
         }
 
@@ -67,10 +67,10 @@ class AuthTokenAuthenticator implements SimplePreAuthenticatorInterface, Authent
 
         $user = $authToken->getUser();
         $pre = new PreAuthenticatedToken(
-          $user,
-          $authTokenHeader,
-          $providerKey,
-          $user->getRoles()
+            $user,
+            $authTokenHeader,
+            $providerKey,
+            $user->getRoles()
         );
 
         // Nos utilisateurs n'ont pas de role particulier, on doit donc forcer l'authentification du token

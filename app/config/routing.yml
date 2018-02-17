@@ -2,6 +2,11 @@ app:
     resource: '@AppBundle/Controller/DefaultController.php'
     type: annotation
 
+customers:
+    type:     rest
+    resource: AppBundle\Controller\CustomerController
+    prefix: /api
+
 places:
     type:     rest
     resource: AppBundle\Controller\PlaceController
