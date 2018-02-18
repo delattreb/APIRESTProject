@@ -2,10 +2,13 @@ AppBundle\Entity\IOT\Data:
     exclusion_policy: none
     properties:
         id:
-            groups: ['data']
+            groups: ['device', 'data']
         temperature:
-            groups: ['data']
+            groups: ['device', 'data']
         humidity:
-            groups: ['data']
+            groups: ['device', 'data']
         created:
+            groups: ['device', 'data']
+        device:
             groups: ['data']
+
