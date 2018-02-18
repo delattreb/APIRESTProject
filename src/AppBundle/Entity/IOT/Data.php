@@ -39,6 +39,22 @@ class Data
         $this->created = new \Datetime("now");
     }
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Device", inversedBy="datas")
+     * @var Device
+     */
+    protected $device;
+
+    public function getDevice()
+    {
+        return $this->device;
+    }
+
+    public function setDevice($device)
+    {
+        $this->device = $device;
+    }
+
     public function getCreated()
     {
         return $this->created;

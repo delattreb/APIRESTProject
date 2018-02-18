@@ -95,6 +95,7 @@ class CustomerController extends Controller
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
+            // If device information exists Device is create
             foreach ($customer->getDevices() as $device) {
                 $device->setCustomer($customer);
                 $em->persist($device);

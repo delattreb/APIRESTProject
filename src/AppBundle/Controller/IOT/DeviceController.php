@@ -84,12 +84,12 @@ class DeviceController extends Controller
 
     /**
      * @Rest\View(statusCode=Response::HTTP_CREATED,serializerGroups={"device"})
-     * @Rest\Post("/devices")
+     * @Rest\Post("/devices/{id}")
      */
     public function postDevicesAction(Request $request)
     {
         $customer = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:Customer')
+            ->getRepository('AppBundle:IOT\Customer')
             ->find($request->get('id'));
         /* @var $customer Customer */
 
@@ -97,7 +97,7 @@ class DeviceController extends Controller
             return $this->customerNotFound();
         }
         $device = new Device();
-        $device->setCustomer($customer); // Ici, le lieu est associé au prix
+        $device->setCustomer($customer);
         $form = $this->createForm(DeviceType::class, $device);
 
         $form->submit($request->request->all());

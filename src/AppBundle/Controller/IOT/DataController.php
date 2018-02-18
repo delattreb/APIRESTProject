@@ -83,11 +83,20 @@ class DataController extends Controller
 
     /**
      * @Rest\View(statusCode=Response::HTTP_CREATED,serializerGroups={"data"})
-     * @Rest\Post("/datas")
+     * @Rest\Post("/datas/{id}")
      */
     public function postDatasAction(Request $request)
     {
+        $device = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:IOT\Device')
+            ->find($request->get('id'));
+        /* @var $device Device */
+
+        if (empty($device)) {
+            return $this->deviceNotFound();
+        }
         $data = new Data();
+        $data->setDevice($device);
         $form = $this->createForm(DataType::class, $data);
 
         $form->submit($request->request->all());
@@ -100,6 +109,11 @@ class DataController extends Controller
         } else {
             return $form;
         }
+    }
+
+    private function deviceNotFound()
+    {
+        return \FOS\RestBundle\View\View::create(['message' => 'Device not found'], Response::HTTP_NOT_FOUND);
     }
 
     /**

@@ -36,6 +36,22 @@ class Device
      */
     protected $customer;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Data", mappedBy="device", cascade={"persist", "remove"})
+     * @var Data[]
+     */
+    protected $datas;
+
+    public function getDatas()
+    {
+        return $this->datas;
+    }
+
+    public function setDatas($datas)
+    {
+        $this->datas = $datas;
+    }
+
     public function getCustomer()
     {
         return $this->customer;
