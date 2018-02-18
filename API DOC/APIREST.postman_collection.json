@@ -169,7 +169,7 @@
                   ],
                   "body": {
                     "mode": "raw",
-                    "raw": "{\r\n  \"name\": \"Posted Customer\"\r\n}"
+                    "raw": "{\r\n  \"name\": \"Posted Customer\",\r\n  \"description\": \"Description of Customer\",\r\n  \"email\": \"customer@gmail.com\",\r\n  \"address\": \"1 av. John Parish\",\r\n  \"city\": \"New York\",\t\r\n  \"state\": \"America\",\t\r\n  \"postalcode\": \"1089\"\r\n }\r\n\r\n"
                   },
                   "url": {
                     "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers",
@@ -208,10 +208,10 @@
                   ],
                   "body": {
                     "mode": "raw",
-                    "raw": "{\r\n  \"name\": \"Posted Device\"\r\n}"
+                    "raw": "{\r\n  \"name\": \"Posted Device\",\r\n  \"description\": \"Another Device\"\r\n}"
                   },
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/21",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -224,7 +224,48 @@
                       "web",
                       "app_dev.php",
                       "api",
-                      "devices"
+                      "devices",
+                      "21"
+                    ]
+                  },
+                  "description": ""
+                },
+                "response": []
+              },
+              {
+                "name": "Post Data",
+                "request": {
+                  "method": "POST",
+                  "header": [
+                    {
+                      "key": "X-Auth-Token",
+                      "value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"temperature\": 19.5,\r\n  \"humidity\": 54.6\r\n}"
+                  },
+                  "url": {
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/16",
+                    "protocol": "http",
+                    "host": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "path": [
+                      "APIRESTProject",
+                      "web",
+                      "app_dev.php",
+                      "api",
+                      "datas",
+                      "16"
                     ]
 						},
 						"description": ""
@@ -288,7 +329,7 @@
 					},
 					"response": [
 						{
-                          "id": "3f44a947-0dad-4d64-b4db-6eaedc7e403e",
+                          "id": "45c76c81-e86d-4abc-b1e7-9b35313a65fb",
 							"name": "Get Users",
 							"originalRequest": {
 								"method": "GET",
@@ -385,7 +426,7 @@
 							"body": "[{\"id\":2,\"firstname\":\"Ef\",\"lastname\":\"Ghi\",\"email\":\"ef.ghi@test.local\"},{\"id\":3,\"firstname\":\"Bruno\",\"lastname\":\"Delattre\",\"email\":\"delattreb@gmail.colm\"}]"
 						},
 						{
-                          "id": "651c4e38-5d6f-4b96-b7e1-abe2e9372342",
+                          "id": "e39df48f-7285-4310-b9b4-d71fad8d738d",
 							"name": "Get Users",
 							"originalRequest": {
 								"method": "GET",
@@ -648,7 +689,7 @@
                   ],
                   "body": {},
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/12",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/13",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -662,7 +703,7 @@
                       "app_dev.php",
                       "api",
                       "customers",
-                      "12"
+                      "13"
                     ]
                   },
                   "description": ""
@@ -713,7 +754,7 @@
                   ],
                   "body": {},
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/2",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/3",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -727,12 +768,77 @@
                       "app_dev.php",
                       "api",
                       "devices",
-                      "2"
+                      "3"
                     ]
 						},
 						"description": ""
 					},
 					"response": []
+              },
+              {
+                "name": "Get Datas",
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "X-Auth-Token",
+                      "value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
+                    }
+                  ],
+                  "body": {},
+                  "url": {
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas",
+                    "protocol": "http",
+                    "host": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "path": [
+                      "APIRESTProject",
+                      "web",
+                      "app_dev.php",
+                      "api",
+                      "datas"
+                    ]
+                  },
+                  "description": ""
+                },
+                "response": []
+              },
+              {
+                "name": "Get Data #Device",
+                "request": {
+                  "method": "GET",
+                  "header": [
+                    {
+                      "key": "X-Auth-Token",
+                      "value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
+                    }
+                  ],
+                  "body": {},
+                  "url": {
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/16",
+                    "protocol": "http",
+                    "host": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "path": [
+                      "APIRESTProject",
+                      "web",
+                      "app_dev.php",
+                      "api",
+                      "datas",
+                      "16"
+                    ]
+                  },
+                  "description": ""
+                },
+                "response": []
 				}
 			]
 		},
@@ -850,10 +956,10 @@
                   ],
                   "body": {
                     "mode": "raw",
-                    "raw": "{\n    \"name\" : \"Puted Customer\"\n}"
+                    "raw": "{\r\n  \"name\": \"Puted Customer\",\r\n  \"description\": \"Puted Description of Customer\",\r\n  \"email\": \"customer@gmail.com\",\r\n  \"address\": \"Puted 1 av. John Parish\",\r\n  \"city\": \"Puted New York\",\t\r\n  \"state\": \"Puted America\",\t\r\n  \"postalcode\": \"Puted 1089\"\r\n}"
                   },
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/12",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/13",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -867,7 +973,7 @@
                       "app_dev.php",
                       "api",
                       "customers",
-                      "12"
+                      "13"
                     ]
                   },
                   "description": ""
@@ -890,10 +996,10 @@
                   ],
                   "body": {
                     "mode": "raw",
-                    "raw": "{\n    \"name\" : \"Puted Device\"\n}"
+                    "raw": "{\n    \"name\" : \"Puted Device\",\n    \"description\" : \"Puted Description\"\n}"
                   },
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/2",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/12",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -907,7 +1013,7 @@
                       "app_dev.php",
                       "api",
                       "devices",
-                      "2"
+                      "12"
                     ]
                   },
                   "description": ""
@@ -1006,7 +1112,7 @@
                     "raw": "{\n  \"name\" : \"Patched Customer\"\n}\n"
                   },
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/12",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/13",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -1020,7 +1126,7 @@
                       "app_dev.php",
                       "api",
                       "customers",
-                      "12"
+                      "13"
                     ]
                   },
                   "description": ""
@@ -1046,7 +1152,7 @@
                     "raw": "{\n    \"name\" : \"Patched Device\"\n}"
                   },
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/2",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/12",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -1060,7 +1166,7 @@
                       "app_dev.php",
                       "api",
                       "devices",
-                      "2"
+                      "12"
                     ]
                   },
                   "description": ""
@@ -1176,7 +1282,7 @@
                   ],
                   "body": {},
                   "url": {
-                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/12",
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/19",
                     "protocol": "http",
                     "host": [
                       "127",
@@ -1190,7 +1296,7 @@
                       "app_dev.php",
                       "api",
                       "customers",
-                      "12"
+                      "19"
                     ]
                   },
                   "description": ""
@@ -1226,6 +1332,39 @@
                       "2"
                     ]
 						},
+                  "description": ""
+                },
+                "response": []
+              },
+              {
+                "name": "Delete Data",
+                "request": {
+                  "method": "DELETE",
+                  "header": [
+                    {
+                      "key": "X-Auth-Token",
+                      "value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
+                    }
+                  ],
+                  "body": {},
+                  "url": {
+                    "raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/2",
+                    "protocol": "http",
+                    "host": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "path": [
+                      "APIRESTProject",
+                      "web",
+                      "app_dev.php",
+                      "api",
+                      "datas",
+                      "2"
+                    ]
+                  },
 						"description": ""
 					},
 					"response": []
