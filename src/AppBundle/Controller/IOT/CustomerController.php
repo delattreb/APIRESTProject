@@ -63,7 +63,6 @@ class CustomerController extends Controller
         }
     }
 
-    //TODO: Cascading gesture
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"customer"})
      * @Rest\Delete("/customers/{id}")
@@ -76,7 +75,7 @@ class CustomerController extends Controller
         /* @var $customer Customer */
 
         if (!$customer) {
-            return;
+            return \FOS\RestBundle\View\View::create(['message' => 'Customer not found'], Response::HTTP_NOT_FOUND);
         }
 
         $em->remove($customer);

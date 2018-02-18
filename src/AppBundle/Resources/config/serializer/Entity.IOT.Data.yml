@@ -7,3 +7,5 @@ AppBundle\Entity\IOT\Data:
             groups: ['data']
         humidity:
             groups: ['data']
+        created:
+            groups: ['data']

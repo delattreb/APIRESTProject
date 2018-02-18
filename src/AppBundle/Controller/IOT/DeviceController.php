@@ -62,7 +62,6 @@ class DeviceController extends Controller
             return $form;
         }
     }
-    //TODO: Cascading gesture
 
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"device"})
@@ -76,7 +75,7 @@ class DeviceController extends Controller
         /* @var $device Device */
 
         if (!$device) {
-            return;
+            return \FOS\RestBundle\View\View::create(['message' => 'Device not found'], Response::HTTP_NOT_FOUND);
         }
 
         $em->remove($device);

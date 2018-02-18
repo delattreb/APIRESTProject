@@ -61,7 +61,7 @@ class DataController extends Controller
             return $form;
         }
     }
-    //TODO: Cascading gesture
+
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"data"})
      * @Rest\Delete("/datas/{id}")
@@ -74,7 +74,7 @@ class DataController extends Controller
         /* @var $data Data */
 
         if (!$data) {
-            return;
+            return \FOS\RestBundle\View\View::create(['message' => 'Data not found'], Response::HTTP_NOT_FOUND);
         }
 
         $em->remove($data);

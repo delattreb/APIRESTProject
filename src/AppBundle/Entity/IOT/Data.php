@@ -29,6 +29,26 @@ class Data
      */
     protected $humidity;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    public function __construct()
+    {
+        $this->created = new \Datetime("now");
+    }
+
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
     public function getId()
     {
         return $this->id;

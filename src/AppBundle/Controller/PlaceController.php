@@ -66,7 +66,6 @@ class PlaceController extends Controller
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"place"})
      * @Rest\Delete("/places/{id}")
      */
-    //TODO: Ajouter un cascade delete
     public function removePlaceAction(Request $request)
     {
         $em = $this->get('doctrine.orm.entity_manager');
