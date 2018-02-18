@@ -1,0 +1,11 @@
+AppBundle\Entity\IOT\Device:
+    exclusion_policy: none
+    properties:
+        id:
+            groups: ['customer', 'device', 'data']
+        name:
+            groups: ['customer', 'device', 'data']
+        description:
+            groups: ['customer', 'device', 'data']
+        #datas:
+        #    groups: ['device']

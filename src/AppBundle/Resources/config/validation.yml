@@ -1,3 +1,52 @@
+AppBundle\Entity\IOT\Data:
+    properties:
+        temperature:
+            - NotBlank: ~
+            - Type: float
+        humidity:
+            - NotBlank: ~
+            - Type: float
+
+AppBundle\Entity\IOT\Device:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
+    properties:
+        name:
+            - NotBlank: ~
+            - Type: string
+        description:
+            - NotBlank: ~
+            - Type: string
+
+AppBundle\Entity\IOT\Customer:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
+    properties:
+        name:
+            - NotBlank: ~
+            - Type: string
+        description:
+            - NotBlank: ~
+            - Type: string
+        email:
+            - NotBlank: ~
+            - Email: ~
+        address:
+            - NotBlank: ~
+            - Type: string
+        city:
+            - NotBlank: ~
+            - Type: string
+        state:
+            - NotBlank: ~
+            - Type: string
+        postalcode:
+            - NotBlank: ~
+            - Type: string
+        devices:
+            - Valid: ~
+
 AppBundle\Entity\Place:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
