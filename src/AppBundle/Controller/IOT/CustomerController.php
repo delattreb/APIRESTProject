@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use AppBundle\Form\Type\IOT\CustomerType;
 use AppBundle\Entity\IOT\Customer;
+use AppBundle\Entity\IOT\Device;
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Request\ParamFetcher;
 use Nelmio\ApiDocBundle\Annotation\Model;
@@ -62,6 +63,7 @@ class CustomerController extends Controller
         }
     }
 
+    //TODO: Cascading gesture
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"customer"})
      * @Rest\Delete("/customers/{id}")
@@ -94,6 +96,10 @@ class CustomerController extends Controller
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
+            foreach ($customer->getDevices() as $device) {
+                $device->setCustomer($customer);
+                $em->persist($device);
+            }
             $em->persist($customer);
             $em->flush();
             return $customer;

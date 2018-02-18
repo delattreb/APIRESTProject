@@ -30,6 +30,22 @@ class Device
      */
     protected $description;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="devices")
+     * @var Customer
+     */
+    protected $customer;
+
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+    }
+
     public function getId()
     {
         return $this->id;

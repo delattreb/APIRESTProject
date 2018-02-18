@@ -56,6 +56,12 @@ class Customer
      */
     protected $postalcode;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Device", mappedBy="customer", cascade={"persist", "remove"})
+     * @var Device[]
+     */
+    protected $devices;
+
     public function getAddress()
     {
         return $this->address;
@@ -133,6 +139,16 @@ class Customer
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getDevices()
+    {
+        return $this->devices;
+    }
+
+    public function setDevices($devices)
+    {
+        $this->devices = $devices;
     }
 
     public function setName($name)

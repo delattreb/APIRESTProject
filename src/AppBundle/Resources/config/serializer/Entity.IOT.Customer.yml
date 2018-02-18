@@ -2,18 +2,20 @@ AppBundle\Entity\IOT\Customer:
     exclusion_policy: none
     properties:
         id:
-            groups: ['customer']
+            groups: ['customer', 'device']
         name:
-            groups: ['customer']
+            groups: ['customer', 'device']
         description:
-            groups: ['customer']
+            groups: ['customer', 'device']
         email:
-            groups: ['customer']
+            groups: ['customer', 'device']
         city:
-            groups: ['customer']
+            groups: ['customer', 'device']
         state:
-            groups: ['customer']
+            groups: ['customer', 'device']
         postalcode:
-            groups: ['customer']
+            groups: ['customer', 'device']
         address:
+            groups: ['customer', 'device']
+        devices:
             groups: ['customer']

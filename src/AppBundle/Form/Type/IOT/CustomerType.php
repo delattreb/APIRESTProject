@@ -19,6 +19,11 @@ class CustomerType extends AbstractType
         $builder->add('city');
         $builder->add('state');
         $builder->add('postalcode');
+        $builder->add('devices', CollectionType::class, [
+            'entry_type' => DeviceType::class,
+            'allow_add' => true,
+            'error_bubbling' => false,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\IOT;
 
+use AppBundle\Entity\IOT\Customer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -61,6 +62,7 @@ class DeviceController extends Controller
             return $form;
         }
     }
+    //TODO: Cascading gesture
 
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT,serializerGroups={"device"})
@@ -87,7 +89,16 @@ class DeviceController extends Controller
      */
     public function postDevicesAction(Request $request)
     {
+        $customer = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:Customer')
+            ->find($request->get('id'));
+        /* @var $customer Customer */
+
+        if (empty($customer)) {
+            return $this->customerNotFound();
+        }
         $device = new Device();
+        $device->setCustomer($customer); // Ici, le lieu est associé au prix
         $form = $this->createForm(DeviceType::class, $device);
 
         $form->submit($request->request->all());
@@ -100,6 +111,11 @@ class DeviceController extends Controller
         } else {
             return $form;
         }
+    }
+
+    private function customerNotFound()
+    {
+        return \FOS\RestBundle\View\View::create(['message' => 'Customer not found'], Response::HTTP_NOT_FOUND);
     }
 
     /**

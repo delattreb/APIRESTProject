@@ -44,6 +44,8 @@ AppBundle\Entity\IOT\Customer:
         postalcode:
             - NotBlank: ~
             - Type: string
+        devices:
+            - Valid: ~
 
 AppBundle\Entity\Place:
     constraints:
