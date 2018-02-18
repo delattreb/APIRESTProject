@@ -9,6 +9,6 @@ AppBundle\Entity\IOT\Data:
             groups: ['device', 'data']
         created:
             groups: ['device', 'data']
-        device:
-            groups: ['data']
+        #device:
+        #    groups: ['data']
 

@@ -155,10 +155,16 @@ class DataController extends Controller
      */
     public function getDataAction(Request $request)
     {
-        $data = $this->get('doctrine.orm.entity_manager')
-            ->getRepository('AppBundle:IOT\Data')
-            ->find($request->get('id')); // L'identifiant en tant que paramétre n'est plus nécessaire
-        /* @var $data Data */
+        $device = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:IOT\Device')
+            ->find($request->get('id'));
+        /* @var $device Device */
+
+        if (empty($device)) {
+            return $this->deviceNotFound();
+        }
+
+        $data = $device->getDatas();
 
         if (empty($data)) {
             return \FOS\RestBundle\View\View::create(['message' => 'Data not found'], Response::HTTP_NOT_FOUND);
