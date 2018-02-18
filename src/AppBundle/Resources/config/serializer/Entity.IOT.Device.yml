@@ -7,5 +7,5 @@ AppBundle\Entity\IOT\Device:
             groups: ['customer', 'device', 'data']
         description:
             groups: ['customer', 'device', 'data']
-        datas:
-            groups: ['device']
+        #datas:
+        #    groups: ['device']
