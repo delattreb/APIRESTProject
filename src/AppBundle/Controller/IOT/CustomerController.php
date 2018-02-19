@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use AppBundle\Form\Type\IOT\CustomerType;
 use AppBundle\Entity\IOT\Customer;
-use AppBundle\Entity\IOT\Device;
+
 use FOS\RestBundle\Controller\Annotations\QueryParam;
 use FOS\RestBundle\Request\ParamFetcher;
 use Nelmio\ApiDocBundle\Annotation\Model;
