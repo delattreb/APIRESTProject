@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\IOT;
 
+use AppBundle\Entity\IOT\Device;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
