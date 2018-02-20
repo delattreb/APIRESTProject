@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="Devices",
+ * @ORM\Table(name="devices",
  *      uniqueConstraints={@ORM\UniqueConstraint(name="devices_name_unique",columns={"name"})}
  * )
  */
