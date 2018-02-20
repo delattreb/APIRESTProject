@@ -10,5 +10,3 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: ee78e21dcd0847f11ef4ba227fda2d73c01c608e
-    token: iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E=
-
