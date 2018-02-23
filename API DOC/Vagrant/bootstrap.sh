@@ -4,9 +4,6 @@
 PASSWORD='root'
 PROJECTFOLDER='myproject'
 
-# create project folder
-sudo mkdir "/var/www/html/${PROJECTFOLDER}"
-
 # update / upgrade
 sudo apt-get update
 sudo apt-get -y upgrade
@@ -39,8 +36,8 @@ sudo apt-get install zip
 # setup hosts file
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
-    DocumentRoot "/var/www/html/${PROJECTFOLDER}"
-    <Directory "/var/www/html/${PROJECTFOLDER}">
+    DocumentRoot "/var/www/html"
+    <Directory "/var/www/html">
         AllowOverride All
         Require all granted
     </Directory>

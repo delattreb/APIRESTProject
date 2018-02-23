@@ -1,10 +1,14 @@
 parameters:
+    excludes_analyse:
+        - vendor/*
     ascii:
-        failed: resource/grumphp-grumpy.txt
-        succeeded: resource/grumphp-happy.txt
+        failed: ~
+        succeeded: ~
     git_dir: .
     bin_dir: vendor/bin
     tasks:
+        phpversion:
+            project: '7.0'
         phplint:
             exclude: []
             jobs: ~
@@ -15,3 +19,7 @@ parameters:
             fixers: []
             level: ~
             verbose: true
+        doctrine_orm:
+            skip_mapping: true
+            skip_sync: true
+            triggered_by: ['php', 'xml', 'yml']
