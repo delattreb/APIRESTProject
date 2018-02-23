@@ -1,3 +1,4 @@
+# Data
 AppBundle\Entity\IOT\Data:
     properties:
         temperature:
@@ -7,6 +8,7 @@ AppBundle\Entity\IOT\Data:
             - NotBlank: ~
             - Type: float
 
+# Device
 AppBundle\Entity\IOT\Device:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
@@ -18,6 +20,7 @@ AppBundle\Entity\IOT\Device:
             - NotBlank: ~
             - Type: string
 
+# Customer
 AppBundle\Entity\IOT\Customer:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
@@ -47,6 +50,7 @@ AppBundle\Entity\IOT\Customer:
         devices:
             - Valid: ~
 
+# Place
 AppBundle\Entity\Place:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
@@ -60,6 +64,7 @@ AppBundle\Entity\Place:
         prices:
             - Valid: ~
 
+# User
 AppBundle\Entity\User:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: email
@@ -80,6 +85,7 @@ AppBundle\Entity\User:
                 min: 4
                 max: 50
 
+# Price
 AppBundle\Entity\Price:
     properties:
         type:
@@ -92,6 +98,7 @@ AppBundle\Entity\Price:
             - GreaterThanOrEqual:
                 value: 0
 
+# Credentials
 AppBundle\Entity\Credentials:
     properties:
         login:
