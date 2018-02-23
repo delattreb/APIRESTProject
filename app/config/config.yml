@@ -104,7 +104,7 @@ fos_rest:
 jms_serializer:
     handlers:
         datetime:
-            default_format: "Y-m-d\\TH:i:sP"
+            default_format: "d-m-Y\\TH:i:sP"
             default_timezone: "UTC"
 
 nelmio_api_doc:
