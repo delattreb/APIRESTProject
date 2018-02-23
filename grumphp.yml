@@ -1,4 +1,6 @@
 parameters:
+    excludes_analyse:
+        - vendor/*
     ascii:
         failed: ~
         succeeded: ~
@@ -15,3 +17,7 @@ parameters:
             fixers: []
             level: ~
             verbose: true
+        doctrine_orm:
+            skip_mapping: true
+            skip_sync: true
+            triggered_by: ['php', 'xml', 'yml']
