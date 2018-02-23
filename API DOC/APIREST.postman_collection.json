@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "APIREST",
-		"_postman_id": "1c96b1aa-7810-8f2c-bd38-24b2a4d02910",
+		"_postman_id": "581cfe31-561a-0285-7b0c-7ac1543ff6b3",
 		"description": "# Introduction\nWhat does your API do?\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nWhat is the preferred way of using the API?\n\n# Error Codes\nWhat errors and status codes can a user expect?\n\n# Rate limit\nIs there a limit to the number of requests an user can send?",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -187,8 +187,7 @@
 								"api",
 								"customers"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -211,7 +210,7 @@
 							"raw": "{\r\n  \"name\": \"Posted Device\",\r\n  \"description\": \"Another Device\"\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/21",
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -225,10 +224,9 @@
 								"app_dev.php",
 								"api",
 								"devices",
-								"21"
+								"1"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -251,7 +249,7 @@
 							"raw": "{\r\n  \"temperature\": 19.5,\r\n  \"humidity\": 54.6\r\n}"
 						},
 						"url": {
-							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/17",
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -265,10 +263,9 @@
 								"app_dev.php",
 								"api",
 								"datas",
-								"17"
+								"1"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -329,7 +326,7 @@
 					},
 					"response": [
 						{
-							"id": "3fdea225-97d8-449b-a1b6-9cc875629e1e",
+							"id": "a9df7246-e20e-414a-99e6-b431df37f4e4",
 							"name": "Get Users",
 							"originalRequest": {
 								"method": "GET",
@@ -358,7 +355,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"key": "Cache-Control",
@@ -426,7 +422,7 @@
 							"body": "[{\"id\":2,\"firstname\":\"Ef\",\"lastname\":\"Ghi\",\"email\":\"ef.ghi@test.local\"},{\"id\":3,\"firstname\":\"Bruno\",\"lastname\":\"Delattre\",\"email\":\"delattreb@gmail.colm\"}]"
 						},
 						{
-							"id": "e1eaafe9-9536-40b9-b1a4-2d28d84ab380",
+							"id": "c98acaa8-8550-44cf-8037-acd1aba0133d",
 							"name": "Get Users",
 							"originalRequest": {
 								"method": "GET",
@@ -461,10 +457,9 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "Text",
-							"_postman_previewtype": "parsed",
 							"header": [],
 							"cookie": [],
-							"responseTime": 0,
+							"responseTime": "0",
 							"body": ""
 						}
 					]
@@ -493,7 +488,10 @@
 								"value": "P6kL9vyzrEXgEPy0jGj4pDTPvxxncVzYPPHnsQhsMv/nHatoFbicBOXi4cUbAzRox0k="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/places",
 							"protocol": "http",
@@ -655,7 +653,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers",
 							"protocol": "http",
@@ -672,8 +673,7 @@
 								"api",
 								"customers"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -687,7 +687,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/13",
 							"protocol": "http",
@@ -705,8 +708,7 @@
 								"customers",
 								"13"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -720,7 +722,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices",
 							"protocol": "http",
@@ -737,8 +742,7 @@
 								"api",
 								"devices"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -752,7 +756,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/3",
 							"protocol": "http",
@@ -770,8 +777,7 @@
 								"devices",
 								"3"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -785,7 +791,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas",
 							"protocol": "http",
@@ -802,8 +811,7 @@
 								"api",
 								"datas"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -819,7 +827,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/17",
+							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -833,10 +841,9 @@
 								"app_dev.php",
 								"api",
 								"datas",
-								"17"
+								"1"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -975,8 +982,7 @@
 								"customers",
 								"13"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1015,8 +1021,7 @@
 								"devices",
 								"12"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -1128,8 +1133,7 @@
 								"customers",
 								"13"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1168,8 +1172,7 @@
 								"devices",
 								"12"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
@@ -1280,7 +1283,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/customers/19",
 							"protocol": "http",
@@ -1298,8 +1304,7 @@
 								"customers",
 								"19"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1313,7 +1318,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/devices/17",
 							"protocol": "http",
@@ -1331,8 +1339,7 @@
 								"devices",
 								"17"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				},
@@ -1346,7 +1353,10 @@
 								"value": "iWQsCcu1DQsunfiPDIiRrfqor3ZbQQOMrLNua6BvHVcrO+jAmAfZq+onJNpdIoxt//E="
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "http://127.0.0.1/APIRESTProject/web/app_dev.php/api/datas/2",
 							"protocol": "http",
@@ -1364,8 +1374,7 @@
 								"datas",
 								"2"
 							]
-						},
-						"description": ""
+						}
 					},
 					"response": []
 				}
