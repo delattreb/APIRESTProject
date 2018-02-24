@@ -31,8 +31,6 @@ sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/mysql/app-pass password $
 sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2"
 sudo apt-get -y install phpmyadmin
 
-sudo apt-get install zip
-
 # setup hosts file
 VHOST=$(cat <<EOF
 <VirtualHost *:80>
@@ -54,6 +52,9 @@ service apache2 restart
 
 # install git
 sudo apt-get -y install git
+
+# install zip
+sudo apt-get install zip
 
 # install Composer
 curl -s https://getcomposer.org/installer | php
